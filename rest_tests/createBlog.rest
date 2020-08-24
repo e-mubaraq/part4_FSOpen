@@ -1,0 +1,9 @@
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+
+{
+    "title": "Ife life",
+    "author": "Jubril Edu",
+    "url": "this is the url",
+    "likes": 41
+}
