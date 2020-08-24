@@ -1,6 +1,2 @@
 node_modules
 .env
-models
-utils
-controllers
-app.js
