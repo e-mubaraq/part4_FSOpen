@@ -37,8 +37,7 @@ describe('POST request tests', () => {
         expect(titles).toContain('Lagos good life')
     })
 
-    test.only('likes attribute missing in blog body, defaults to zero', async () => {
-        const prevBlogs = await api.get('/api/blogs')
+    test('likes attribute missing in blog body, defaults to zero', async () => {
         const newBlog = {
             "title": "Without likes",
             "author": "Martin White",
@@ -53,6 +52,21 @@ describe('POST request tests', () => {
         const response = await api.get('/api/blogs')
         const likes = response.body.map(b => b.likes)
         expect(likes).not.toContain(undefined)
+    })
+
+    test ('title and url missing responds with 400', async () => {
+        const prevBlogs = await api.get('/api/blogs')
+        const newBlog = {
+            "author": "No title Author",
+            "likes": 9
+        }
+        await api
+            .post('/api/blogs')
+            .send(newBlog)
+            .expect(400)
+    
+        const response = await api.get('/api/blogs')
+        expect(response.body).toHaveLength(prevBlogs.body.length)
     })
 })
 
