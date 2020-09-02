@@ -13,7 +13,6 @@ blogsRouter.get('/', (request, response) => {
   
 blogsRouter.post('/', async (request, response) => {
     const blog = new Blog(request.body)
-  
     await blog
       .save()
       .then(result => {
