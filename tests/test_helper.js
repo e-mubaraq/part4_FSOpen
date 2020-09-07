@@ -16,10 +16,10 @@ const initialBlogs = [
     id: "5f43dabd024d864c55211d4f"
     },
     {
-    title: "Ife life",
-    author: "Jubril Edu",
+    title: "Lagos life",
+    author: "Taye Edu",
     url: "this is the url",
-    likes: 41,
+    likes: 9,
     id: "5f43f218e9bd6064715eb2b7"
     }
 ]

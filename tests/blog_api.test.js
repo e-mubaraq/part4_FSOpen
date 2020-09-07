@@ -120,7 +120,7 @@ describe('addition of a new note', () => {
     })
 })
 
-describe('deletion of a note', () =>  {
+/* describe('deletion of a note', () =>  {
     test('succeeds with status code 204 if id is valid', async () => {
         const blogsAtStart = await helper.blogsInDb()
         const blogToDelete = blogsAtStart[0]
@@ -136,7 +136,7 @@ describe('deletion of a note', () =>  {
         const titles = blogsAtEnd.map(b => b.title)
         expect(titles).not.toContain(blogToDelete.title)
     })
-})
+})*/
 
 afterAll(() => {
     mongoose.connection.close()
