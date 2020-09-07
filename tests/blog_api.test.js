@@ -144,10 +144,11 @@ describe('updating a new note', () => {
         const blogToUpdate = blogsAtStart[0]
         
         const blogChange  = {
-            likes: blogToUpdate.likes + 1
+            "likes": blogToUpdate.likes + 1
         } 
         await api
-            .put(`/api/blogs/${blogToUpdate.id}`, blogChange)
+            .put(`/api/blogs/${blogToUpdate.id}`)//, blogChange)
+            .send(blogChange)
             .expect(200)
             .expect('Content-Type', /application\/json/)
         const blogsAtEnd = await helper.blogsInDb()
