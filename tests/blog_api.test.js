@@ -120,7 +120,7 @@ describe('addition of a new note', () => {
     })
 })
 
-/* describe('deletion of a note', () =>  {
+describe('deletion of a note', () =>  {
     test('succeeds with status code 204 if id is valid', async () => {
         const blogsAtStart = await helper.blogsInDb()
         const blogToDelete = blogsAtStart[0]
@@ -136,7 +136,27 @@ describe('addition of a new note', () => {
         const titles = blogsAtEnd.map(b => b.title)
         expect(titles).not.toContain(blogToDelete.title)
     })
-})*/
+})
+
+describe('updating a new note', () => {
+    test('Update suceeds with valid data', async () => {
+        const blogsAtStart = await helper.blogsInDb()
+        const blogToUpdate = blogsAtStart[0]
+        
+        const blogChange  = {
+            likes: blogToUpdate.likes + 1
+        } 
+        await api
+            .put(`/api/blogs/${blogToUpdate.id}`, blogChange)
+            .expect(200)
+            .expect('Content-Type', /application\/json/)
+        const blogsAtEnd = await helper.blogsInDb()
+        expect(blogsAtEnd).toHaveLength(helper.initialBlogs.length)
+
+        const likes = blogsAtEnd.map(b => b.likes)
+        expect(likes).toContain(blogChange.likes)
+    })
+})
 
 afterAll(() => {
     mongoose.connection.close()

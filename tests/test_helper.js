@@ -4,21 +4,21 @@ const initialBlogs = [
     {
     title: "CMU life",
     author: "Mubarak Mikail",
-    url: "this is the url",
+    url: "this is the cmu life url",
     likes: 4,
     id: "5f43da07024d864c55211d4e"
     },
     {
     title: "Ife life",
     author: "Jubril Edu",
-    url: "this is the url",
+    url: "this is the ife life url",
     likes: 41,
     id: "5f43dabd024d864c55211d4f"
     },
     {
     title: "Lagos life",
     author: "Taye Edu",
-    url: "this is the url",
+    url: "this is the lagos life url",
     likes: 9,
     id: "5f43f218e9bd6064715eb2b7"
     }
