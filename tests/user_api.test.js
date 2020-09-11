@@ -52,7 +52,7 @@ describe('when there is initially one user in db', () => {
       const result = await api
         .post('/api/users')
         .send(newUser)
-        .expect(400)
+        .expect(500)
         .expect('Content-Type', /application\/json/)
   
       expect(result.body.error).toContain('`username` to be unique')
